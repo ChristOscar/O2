@@ -1,18 +1,18 @@
-import Footer from './components/footer';
-import Grid from './components/grid';
-import Hero from './components/hero';
-import NavBar from './components/navBar';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "./components/footer";
+import Home from "./homePage";
+import NavBar from "./components/navBar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <NavBar/>
-      </header>
-      <Hero/>
-      <Grid/>
-      <Footer/>
-    </div>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

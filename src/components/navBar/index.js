@@ -1,22 +1,38 @@
 import React from "react";
-import "./Navbar.css"; // Import the CSS file for styling
+import { Link, useNavigate } from "react-router-dom";
+import './Navbar.css';
 
-function Navbar() {
+const NavBar = () => {
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">
-        <a href="#">OUTDORSY</a>
+    <nav>
+      <div className="logo" onClick={handleLogoClick}>
+        Outdoorsy
       </div>
-      <div className="navbar-menu">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+      <ul>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/services">Services</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+        <li>
+          <Link to="/dashboard">Dashboard</Link>
+        </li>
+      </ul>
+      <div className="login">
+        <Link to="/login">Login</Link>
       </div>
     </nav>
   );
-}
+};
 
-export default Navbar;
+export default NavBar;
